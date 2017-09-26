@@ -7,5 +7,5 @@ certbot certonly                             \
   --agree-tos                                \
   --email "yury.egorenkov@gmail.com"         \
   -d "icox.me"                            && \
-crond                                     && \
+crond -l 0                                && \
 nginx -g 'pid /tmp/nginx.pid; daemon off;'
