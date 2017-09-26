@@ -1,0 +1,17 @@
+version: '3.2'
+
+
+volumes:
+  certbot: null
+
+
+services:
+
+  certbot:
+    build: .
+    restart: on-failure
+    volumes:
+      - certbot:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
