@@ -3,7 +3,7 @@ FROM alpine
 RUN apk add --update nginx certbot openssl
 
 # TODO Extract email and server name into a variables
-ADD default.conf /etc/nginx/conf.d/default.conf
+ADD default.conf.template /etc/nginx/conf.d/default.conf.template
 
 WORKDIR /opt/certbot
 

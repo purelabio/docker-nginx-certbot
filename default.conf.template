@@ -4,14 +4,14 @@ server {
   listen       80;
   listen       443 default ssl;
 
-  server_name  icox.me;
+  server_name  ${NGINX_SITE};
 
   location / {
     try_files $uri $uri/ /index.html;
   }
 
-  ssl_certificate /etc/letsencrypt/live/icox.me/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/icox.me/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/${NGINX_SITE}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/${NGINX_SITE}/privkey.pem;
 
   if ($scheme != "https") {
       return 301 https://$host$request_uri;

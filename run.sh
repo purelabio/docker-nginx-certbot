@@ -5,7 +5,8 @@ certbot certonly                             \
   --noninteractive                           \
   --standalone                               \
   --agree-tos                                \
-  --email "yury.egorenkov@gmail.com"         \
-  -d "icox.me"                            && \
+  --email $CERTBOT_EMAIL                     \
+  -d $NGINX_SITE                          && \
 crond -l 0                                && \
+envsubst < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && \
 nginx -g 'pid /tmp/nginx.pid; daemon off;'
